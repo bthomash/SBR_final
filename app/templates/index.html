@@ -1,0 +1,27 @@
+
+<html>
+
+<!-- Brian Herrick, NYU Digital Forensics
+This file is template for the Main login screen - the screen will display all
+the files and associated captions for all users -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> Hello, {{ current_user.username }}!</h1>
+    <h1> Welcome to the Seen Before Repository!</h1>
+    <img src="/templates/sbr.jpg" alt="SBR logo" height="48" width="300">
+    <br />
+    <h2> This is an Official Use Only system which has been established to request the updated </h2>
+    <h2> SHA1 hashset for child sexual abuse imagery which has been seen previously in other forensic </h2>
+    <h2> examinations.  The hashset which will be provided to you should be imported prior to initiating </h2>
+    <h2> a forensic examination on any system which may contain child sexual abuse materials. </h2>
+    <h2> Below are listed your previous requests to receive the SBR hashset. </h2>
+    
+    {% for request in requests %}
+    <div><p>{{ current_user.username }} requested: Hashset 02032019 for Project Infinity Case HQ203021</p></div>
+    {% endfor %}
+    
+{% endblock %}
+
+</html>

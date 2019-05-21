@@ -1,0 +1,33 @@
+<!-- Brian Herrick login.html file -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In to the Seen Before Repository</h1>
+    <h2>This site is for official use only.</h2>
+    <h2>Registration acknowledges an official business</h2>
+    <h2>need for use of seen-before hash values.</h2>
+    <h2>Unauthorized use is strictly prohibited.</h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+        <br />
+    </form>
+    <p> Are you a new user? <a href="{{ url_for('register') }}"> Click to register for SBR! </a></p>   
+
+{% endblock %}
